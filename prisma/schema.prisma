@@ -11,23 +11,23 @@ datasource db {
 }
 
 model Domain {
-  id    String @id @default(uuid())
+  id    String @id @default(dbgenerated("gen_random_uuid()"))
   name  String @unique
   users User[]
 
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @updatedAt @default(now())
 }
 
 model User {
-  id       String @id @default(uuid())
+  id       String @id @default(dbgenerated("gen_random_uuid()"))
   did      String
   handle   String
   domainId String
   domain   Domain @relation(fields: [domainId], references: [id])
 
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @updatedAt @default(now())
 
   @@unique([handle, domainId])
 }
