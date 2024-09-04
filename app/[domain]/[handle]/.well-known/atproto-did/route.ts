@@ -12,6 +12,7 @@ export const GET = async (
   return new Response(did, {
     headers: {
       "content-type": "text/plain",
+      "cache-control": "s-maxage=86400",
     },
   })
 }
