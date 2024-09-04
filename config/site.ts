@@ -16,6 +16,6 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/mozzius/community-handles",
+    github: "https://github.com/developerdavi/codafofo.dev",
   },
 }
